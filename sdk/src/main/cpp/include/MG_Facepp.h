@@ -127,20 +127,12 @@ typedef struct {
      * @return 成功则返回 MG_RETCODE_OK
      */
     MG_RETCODE (*CreateApiHandle) (
-#if MGAPI_BUILD_ON_ANDROID
-        JNIEnv* env,
-        jobject jobj,
-#endif
         const MG_BYTE *model_data,
         MG_INT32 model_length,
         MG_FPP_APIHANDLE _OUT *api_handle_ptr);
     
     
     MG_RETCODE (*CreateApiHandleWithMaxFaceCount) (
-#if MGAPI_BUILD_ON_ANDROID
-       JNIEnv* env,
-       jobject jobj,
-#endif
        const MG_BYTE *model_data,
        MG_INT32 model_length,
        MG_INT32 maxFaceCount,

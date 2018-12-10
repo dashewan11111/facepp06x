@@ -32,7 +32,6 @@ import com.megvii.facepp.sdk.Facepp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import com.megvii.facepp.sdk.Facepp;
 
 import static android.os.Build.VERSION_CODES.M;
 
@@ -411,8 +410,10 @@ public class FaceppActionActivity extends Activity implements OnClickListener {
             faceActionInfo.ispowertest = ispowertest;//功耗测试
             faceActionInfo.isdumptuv = isdump;//下载图片
 
-
-            startActivityForResult(new Intent(FaceppActionActivity.this, OpenglActivity.class).putExtra("FaceAction", faceActionInfo),101);
+            Intent intent = new Intent(FaceppActionActivity.this, OpenglActivity.class);
+            intent.putExtra("FaceAction", faceActionInfo);
+            intent.putExtra("faceset_token", getIntent().getStringExtra("faceset_token"));
+            startActivityForResult(intent, 101);
         }
     }
 

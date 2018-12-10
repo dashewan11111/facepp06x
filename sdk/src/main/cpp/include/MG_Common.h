@@ -35,7 +35,7 @@ typedef enum {
     MG_RETCODE_INVALID_MODEL,       ///< 传入了错误的模型（model）
 
     MG_RETCODE_FAILED = -1,         ///< 算法内部错误
-    
+
     MG_RETCODE_GL_CONTEXT = 201,    ///< 不在 OpenGL context 下
 } MG_RETCODE;
 
@@ -129,7 +129,7 @@ typedef int MG_BOOL;
  */
 #if __APPLE__
     #define MGAPI_BUILD_ON_IPHONE   1
-    
+
 #elif __ANDROID__
 #define MGAPI_BUILD_ON_ANDROID	0
 
@@ -165,7 +165,7 @@ typedef struct {
  */
 typedef struct {
     MG_INT32 left;              ///< 矩形框最左边的坐标值
-    
+
     MG_INT32 top;               ///< 矩形框最上边的坐标值
 
     MG_INT32 right;             ///< 矩形框最右边的坐标值
@@ -277,7 +277,7 @@ typedef enum{
 #define MG_CONTOUR_RIGHT7 78
 #define MG_CONTOUR_RIGHT8 79
 #define MG_CONTOUR_RIGHT9 80
-    
+
 #define MG_MOUTH_MIDDLE    81
 #define MG_LEFTEYE_CENTER  82
 #define MG_RIGHTEYE_CENTER 83
@@ -368,7 +368,7 @@ typedef struct {
                                                     ///< 如果只对单张图做人脸检测则固定返回 -1，
                                                     ///< 否则在不同帧中相同的 track_id 表示同一个人脸。
                                                     ///< 每次初始化后 track_id 的值为从 0 开始依此递增。
-                                                    
+
     MG_RECTANGLE rect;                              ///< 人脸在图像中的位置，以一个矩形框来刻画。
 
     MG_FACELANDMARKS points;                        ///< 人脸关键点信息。
@@ -394,7 +394,7 @@ typedef struct {
 
     MG_SINGLE happy;						///< 笑脸程度置信度
 } MG_FACE;
-    
+
 /**
  * @brief 检测方向
  */
@@ -410,11 +410,11 @@ typedef enum {
  */
 typedef struct {
     MG_SINGLE confidence;   ///< 人脸框置信度，为一个 0 ~ 1 之间的浮点数。
-    
+
     MG_Orientation orient;  ///< 人脸框方向
-    
+
     MG_RECTANGLE rect;      ///< 人脸框在图像中的位置，以一个矩形框来刻画。
-    
+
     float angle;            ///< 人脸框角度
 } MG_DETECT_RECT;
 
@@ -426,30 +426,30 @@ typedef struct {
 typedef struct {
     MG_UINT64 ability;                              ///< 提供人脸算法的能力
 } MG_ABILITY;
-    
-    
+
+
 typedef enum {
     MG_ROTATION_0 = 0,                              ///< 不旋转
-    
+
     MG_ROTATION_90 = 90,                            ///< 图像右时针旋转 90 度
-    
+
     MG_ROTATION_180 = 180,                          ///< 图像右时针旋转 180 度
-    
+
     MG_ROTATION_270 = 270,                          ///< 图像右时针旋转 270 度
 } MG_ROTATION;
-    
-    
+
+
 typedef struct {
     MG_UINT64 expire_time;                          ///< 一个时间戳，表示过期时间
-    
+
     MG_SDKAUTHTYPE auth_type;                       ///< SDK 的授权类型（联网授权或者非联网授权）
-    
+
     MG_UINT64 ability;                              ///< 提供人脸算法的能力
-    
+
     const char *bundleid;
 } MG_ALGORITHMINFO;
 
-    
+
 #ifdef __cplusplus
 }
 #endif
